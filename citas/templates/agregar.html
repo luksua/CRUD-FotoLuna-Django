@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="form-container">
+        <form class method="POST">
+            {% csrf_token %}
+            {{form}}
+            <button type="submit" class="btn btn-success mt-3"> Agendar Cita </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
