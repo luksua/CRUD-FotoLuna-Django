@@ -23,3 +23,4 @@ urlpatterns = [
     path("citas/", include("citas.urls")),
     path("", include("eventos.urls")),
     path("", include("paquetes.urls")),
+]
