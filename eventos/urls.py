@@ -17,14 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from eventos import views
-from citas import views
-from paquetes import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", include ("todo.urls")), 
-    path('citas/', include('citas.urls')),
-    path('eventos/', include('eventos.urls')),
-    path('paquetes/', include('paquetes.urls')),
+   path("", views.homeEvent, name="eventos"),
+    path("agregar/", views.agregarEvent, name="agregarEvent"),
+    path("eliminar/<int:tipoEvento_id>/", views.eliminarEvent, name="eliminarEvent"),
+    path("editar/<int:tipoEvento_id>/", views.editarEvent, name="editarEvent"),
 
 ]

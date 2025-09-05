@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="container">
+        <a class="btn btn-success mb-3" href="{% url 'agregarCita' %}">Agendar Cita</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">N°</th>
+                    <th scope="col">Tipo de Evento</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Lugar</th>
+                    <th scope="col">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cita in citas %}
+                <tr>
+                    <th scope="row"> {{cita.id}} </th>
+                    <th scope="row"> {{cita.eventoFK}} </th>
+                    <th scope="row"> {{cita.horaCita}} </th>
+                    <th scope="row"> {{cita.fechaCita}} </th>
+                    <th scope="row"> {{cita.lugar}} </th>
+                    <td>
+                        <a class="btn btn-danger btn-sm" href="{% url 'eliminarCita' cita.id %}">Eliminar </a>
+                        <a class="btn btn-primary btn-sm" href="{% url 'editarCita' cita.id %}">Editar </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

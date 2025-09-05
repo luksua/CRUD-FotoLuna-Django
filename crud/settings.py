@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'todo',
     'citas',
     'eventos',
-    'paquetes'
+    'paquetes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'tareas.urls'
+ROOT_URLCONF = 'crud.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tareas.wsgi.application'
+WSGI_APPLICATION = 'crud.wsgi.application'
 
 
 # Database
