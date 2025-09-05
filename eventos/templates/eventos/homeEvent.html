@@ -1,0 +1,27 @@
+{% extends "eventos/layout.html" %}
+{% block content %}
+<div class="container">
+    <a class="btn btn-success mb-3" href="{% url 'agregarEvent' %}">Agendar Evento</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">N°</th>
+                <th scope="col">Tipo de Evento</th>
+                <th scope="col">Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for evento in tipoEvento %}
+            <tr>
+                <th scope="row"> {{evento.id}} </th>
+                <th scope="row"> {{evento.tipoEvento}} </th>
+                <td>
+                    <a class="btn btn-danger btn-sm" href="{% url 'eliminarEvent' evento.id %}">Eliminar </a>
+                    <a class="btn btn-primary btn-sm" href="{% url 'editarEvent' evento.id %}">Editar </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

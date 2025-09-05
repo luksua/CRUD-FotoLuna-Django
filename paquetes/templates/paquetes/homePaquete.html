@@ -1,0 +1,36 @@
+{% extends "paquetes/layout.html" %}
+{% block content %}
+<div class="container">
+    <a class="btn btn-success mb-3" href="{% url 'agregar_paquete' %}">Agregar Paquete</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for paquete in paquetes %}
+            <tr>
+                <td>{{ paquete.nombrePaquete }}</td>
+                <td>{{ paquete.descripcionPaquete }}</td>
+                <td>${{ paquete.precio }}</td>
+                <td>
+
+                    <a href="{% url 'eliminar_paquete' paquete.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                    <a href="{% url 'editar_paquete' paquete.id %}" class="btn btn-primary btn-sm">Editar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No hay paquetes disponibles.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+{% endblock %}

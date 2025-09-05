@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block content %}
     <div class="container">
-        <a class="btn btn-success mb-3" href="{% url 'agregar' %}">Agendar Cita</a>
+        <a class="btn btn-success mb-3" href="{% url 'agregarCita' %}">Agendar Cita</a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -22,8 +22,8 @@
                     <th scope="row"> {{cita.fechaCita}} </th>
                     <th scope="row"> {{cita.lugar}} </th>
                     <td>
-                        <a class="btn btn-danger btn-sm" href="{% url 'eliminar' cita.id %}">Eliminar </a>
-                        <a class="btn btn-primary btn-sm" href="{% url 'editar' cita.id %}">Editar </a>
+                        <a class="btn btn-danger btn-sm" href="{% url 'eliminarCita' cita.id %}">Eliminar </a>
+                        <a class="btn btn-primary btn-sm" href="{% url 'editarCita' cita.id %}">Editar </a>
                     </td>
                 </tr>
                 {% endfor %}

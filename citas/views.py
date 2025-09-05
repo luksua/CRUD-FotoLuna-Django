@@ -5,35 +5,35 @@ from .models import Cita
 from citas.forms import CitaForm
 
 # Create your views here.
-def home(request):
+def homeCita(request):
     citas = Cita.objects.all()
     context = {'citas': citas}
     return render(request, 'home.html', context )
 
-def agregar(request):
+def agregarCita(request):
     if request.method == "POST":
         form = CitaForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('homeCita')
     else:
         form = CitaForm()
         
     context = {'form': form}
     return render(request, 'agregar.html', context)
 
-def eliminar(request, id_cita):
+def eliminarCita(request, id_cita):
     cita = Cita.objects.get(id=id_cita)
     cita.delete()
-    return redirect("home")
+    return redirect("homeCita")
 
-def editar(request, id_cita):
+def editarCita(request, id_cita):
     cita = Cita.objects.get(id=id_cita)
     if request.method == "POST":
         form = CitaForm(request.POST, instance=cita)
         if form.is_valid:
             form.save()
-            return redirect("home")
+            return redirect("homeCita")
     else:
         form = CitaForm(instance=cita)
     context = {"form": form}
