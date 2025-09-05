@@ -16,11 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from eventos import views
+from citas import views
+from paquetes import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("todo.urls")),
-    path("citas/", include("citas.urls")),
-    path("", include("eventos.urls")),
-    path("", include("paquetes.urls")),
+    path("", include ("todo.urls")), 
+    path('citas/', include('citas.urls')),
+    path('eventos/', include('eventos.urls')),
+    path('paquetes/', include('paquetes.urls')),
+
 ]
